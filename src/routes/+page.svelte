@@ -7,3 +7,7 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <QRCodeImage />
+<p>Hello World</p>
+
+<QRCodeImage content="eee" />
+<p>eee</p>

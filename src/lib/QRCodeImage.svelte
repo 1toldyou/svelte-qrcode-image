@@ -1,10 +1,14 @@
 <script lang="ts">
     import QRCodeGenerator from 'qrcode';
 
+    export let content:string = "Hello World";
+
     let _generatedImgURL:string = "";
     let imgAlt:string = "QR Code";
 
-    QRCodeGenerator.toDataURL('Hello World').then(url => { _generatedImgURL = url;});
+    QRCodeGenerator.toDataURL(content).then(url => { _generatedImgURL = url;});
 </script>
 
-<img src={_generatedImgURL} alt={imgAlt}>
+<div>
+    <img src={_generatedImgURL} alt={imgAlt}>
+</div>
