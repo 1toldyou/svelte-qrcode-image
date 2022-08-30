@@ -38,5 +38,21 @@
         <QRCodeImage text="eee" scale=10 />
         <p>eee scale=10</p>
         <hr>
+
+        <QRCodeImage width=300 displayWidth=100 />
+        <p>width=300 displayWidth=100</p>
+        <hr>
+
+        <QRCodeImage width=300 displayWidth=100 displayHeight=200 />
+        <p>width=300 displayWidth=100 displayHeight=200</p>
+        <hr>
+
+        <QRCodeImage displayStyle="border-style: dotted;" />
+        <p>displayStyle="border-style: dotted;"</p>
+        <hr>
+
+        <QRCodeImage imgAlt="I'm a QR Code" />
+        <p>imgAlt="I'm a QR Code"</p>
+        <hr>
     </section>
 </main>
