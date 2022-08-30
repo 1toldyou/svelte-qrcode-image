@@ -8,9 +8,14 @@
 
 <main>
     <section>
-        <h1>Welcome to your library project</h1>
-        <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-        <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+        <h1><s>Welcome to your library project</s></h1>
+        <p><s>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</s></p>
+        <p><s>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</s></p>
+        <p>
+            <a href="https://www.npmjs.com/package/svelte-qrcode-image">npm</a>
+            &nbsp;
+            <a href="https://github.com/1toldyou/svelte-qrcode-image">GitHub</a>
+        </p>
     </section>
 
     <section>
@@ -22,16 +27,16 @@
         <p>eee</p>
         <hr>
 
-        <QRCodeImage text="eee" width=400 />
-        <p>eee width=400</p>
+        <QRCodeImage text={currentTimestamp} />
+        <p>dynamic: {currentTimestamp}</p>
+        <hr>
+
+        <QRCodeImage text="eee" width=300 />
+        <p>eee width=300</p>
         <hr>
 
         <QRCodeImage text="eee" scale=10 />
         <p>eee scale=10</p>
-        <hr>
-
-        <QRCodeImage text={currentTimestamp} />
-        <p>dynamic: {currentTimestamp}</p>
         <hr>
     </section>
 </main>

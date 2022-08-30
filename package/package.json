@@ -1,6 +1,6 @@
 {
   "name": "svelte-qrcode-image",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
@@ -17,6 +17,21 @@
   "dependencies": {
     "qrcode": "^1.5.1"
   },
+  "homepage": "https://svelte-qrcode-image.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1toldyou/svelte-qrcode-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1toldyou/svelte-qrcode-image/issues"
+  },
+  "keywords": [
+    "qrcode",
+    "qr",
+    "svelte",
+    "sveltekit",
+    "svelte-kit"
+  ],
   "exports": {
     "./package.json": "./package.json",
     ".": "./index.js",
