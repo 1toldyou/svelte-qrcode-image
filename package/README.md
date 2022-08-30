@@ -5,6 +5,23 @@ QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qr
 and display via `<img>` element, with TypeScript support, works on SvelteKit.
 
 
+## Installation
+Directly from npm:
+```bash
+npm install svelte-qrcode-image
+```
+From GitHub:
+```bash
+npm install git+https://github.com/1toldyou/svelte-qrcode-image.git
+```
+
+## Usage
+Under the `<script>` tag:
+```ts
+import { QRCodeImage } from "svelte-qrcode-image";
+```
+
+
 ## TODO
 - [ ] Documentation
 - [ ] Expose more options
@@ -17,10 +34,10 @@ and display via `<img>` element, with TypeScript support, works on SvelteKit.
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```bash
 npm run dev
 ```
+You can change the port in `vite.config.ts`.
 
 Since this being setup as SvelteKit project, so you should create your component in `src/lib` directory.
 And re-export it in `src/lib/index.js` file.
@@ -51,10 +68,7 @@ Due to recent change in SvelteKit, you need to run this command to build the web
 ```bash
 vite build
 ```
-Instead of
-```bash
-npm run build
-```
+Instead of 'npm run build`
 Since it's calling in the background
 ```bash
 svelte-kit sync && svelte-package
