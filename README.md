@@ -55,6 +55,6 @@ Which will npt create the `public` directory, which is needed for the website to
 ## TODO
 - [ ] Documentation
 - [ ] Expose more options
-- [ ] Reactivity
+- [x] Reactivity
 - [ ] Display the QR-Code as background image or canvas
 - [ ] Website for demo

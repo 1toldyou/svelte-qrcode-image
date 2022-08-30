@@ -36,6 +36,22 @@ or
 npm publish ./package
 ```
 
+## Publish Website
+Due to recent change in SvelteKit, you need to run this command to build the website
+```bash
+vite build
+```
+Instead of
+```bash
+npm run build
+```
+Since it's calling in the background
+```bash
+svelte-kit sync && svelte-package
+```
+Which will npt create the `public` directory, which is needed for the website to work.
+
+
 ## TODO
 - [ ] Documentation
 - [ ] Expose more options
