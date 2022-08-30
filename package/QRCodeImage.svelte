@@ -1,8 +1,16 @@
 <script>import QRCodeGenerator from 'qrcode';
-export let content = "Hello World";
+// required parameters
+export let text = "Hello World";
+// parameters that will pass to the qrcode url generator
+export let margin;
+export let scale;
+export let width;
 let _generatedImgURL = "";
 let imgAlt = "QR Code";
-QRCodeGenerator.toDataURL(content).then(url => { _generatedImgURL = url; });
+QRCodeGenerator.toDataURL(text, { margin: margin, scale: scale, width: width, }).then(url => { _generatedImgURL = url; });
+export function getImageURL() {
+    return _generatedImgURL;
+}
 </script>
 
 <div>

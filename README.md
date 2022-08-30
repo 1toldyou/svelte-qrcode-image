@@ -1,18 +1,8 @@
-# create-svelte
+# Svelte-QRCode-Image
+**Under development, please come back later**
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qrcode](https://github.com/soldair/node-qrcode)) and display via `<img>` element, with TypeScript support.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
 ## Developing
 
@@ -20,9 +10,6 @@ Once you've created a project and installed dependencies with `npm install` (or 
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 Since this being setup as SvelteKit project, so you should create your component in `src/lib` directory.
@@ -39,8 +26,19 @@ svelte-package
 will create a new directory called `package` with the TypeScript definition
 <br>
 
-Then you can publish it to npm
+Then you can publish it to npm (remember to login first)
 ```bash
 cd package
 npm publish
 ```
+or 
+```bash
+npm publish ./package
+```
+
+## TODO
+- [ ] Documentation
+- [ ] Expose more options
+- [ ] Reactivity
+- [ ] Display the QR-Code as background image or canvas
+- [ ] Website for demo

@@ -1,7 +1,11 @@
 import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
-        content?: string | undefined;
+        text?: string | undefined;
+        margin: number | undefined;
+        scale: number | undefined;
+        width: number | undefined;
+        getImageURL?: (() => string) | undefined;
     };
     events: {
         [evt: string]: CustomEvent<any>;
@@ -12,5 +16,6 @@ export declare type QrCodeImageProps = typeof __propDef.props;
 export declare type QrCodeImageEvents = typeof __propDef.events;
 export declare type QrCodeImageSlots = typeof __propDef.slots;
 export default class QrCodeImage extends SvelteComponentTyped<QrCodeImageProps, QrCodeImageEvents, QrCodeImageSlots> {
+    get getImageURL(): () => string;
 }
 export {};

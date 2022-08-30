@@ -11,3 +11,9 @@
 
 <QRCodeImage content="eee" />
 <p>eee</p>
+
+<QRCodeImage content="eee" width=400 />
+<p>eee width=400</p>
+
+<QRCodeImage content="eee" scale=10 />
+<p>eee scale=10</p>
