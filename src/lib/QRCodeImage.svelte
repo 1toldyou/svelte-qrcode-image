@@ -12,10 +12,20 @@
     let _generatedImgURL:string = "";
     let imgAlt:string = "QR Code";
 
-    QRCodeGenerator.toDataURL(text, {margin: margin, scale: scale, width: width,}).then(url => { _generatedImgURL = url;});
+    function generateQRCode() {
+        QRCodeGenerator.toDataURL(text, {margin: margin, scale: scale, width: width,}).then(url => { _generatedImgURL = url;});
+    }
 
     export function getImageURL():string {
         return _generatedImgURL;
+    }
+
+    generateQRCode();
+
+    $: {
+        text = text;
+        generateQRCode();
+        // console.log("text changed");
     }
 </script>
 
