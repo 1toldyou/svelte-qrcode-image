@@ -1,7 +1,17 @@
 # Svelte-QRCode-Image
-**Under development, please come back later**
+**Under development, breaking change could occur before 1.0.0**
 
-QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qrcode](https://github.com/soldair/node-qrcode)) and display via `<img>` element, with TypeScript support.
+QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qrcode](https://github.com/soldair/node-qrcode)) 
+and display via `<img>` element, with TypeScript support, works on SvelteKit.
+
+
+## TODO
+- [ ] Documentation
+- [ ] Expose more options
+- [x] Expose options to control the `<img>` tag
+- [x] Reactivity on text change
+- [ ] Display the QR-Code as background image or canvas
+- [x] Website for demo
 
 
 ## Developing
@@ -50,11 +60,3 @@ Since it's calling in the background
 svelte-kit sync && svelte-package
 ```
 Which will npt create the `public` directory, which is needed for the website to work.
-
-
-## TODO
-- [ ] Documentation
-- [ ] Expose more options
-- [x] Reactivity
-- [ ] Display the QR-Code as background image or canvas
-- [ ] Website for demo

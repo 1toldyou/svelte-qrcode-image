@@ -2,6 +2,10 @@ import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
         text?: string | undefined;
+        displayWidth?: number | undefined;
+        displayHeight?: number | undefined;
+        displayStyle?: string | undefined;
+        imgAlt?: string | undefined;
         margin: number | undefined;
         scale: number | undefined;
         width: number | undefined;
