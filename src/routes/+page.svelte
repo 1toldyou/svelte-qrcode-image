@@ -60,5 +60,13 @@
         <QRCodeImage altText="I'm a QR Code" />
         <p>altText="I'm a QR Code"</p>
         <hr>
+
+        <QRCodeImage errorCorrectionLevel="L" />
+        <p>errorCorrectionLevel="L"</p>
+        <hr>
+
+        <QRCodeImage errorCorrectionLevel="H" />
+        <p>errorCorrectionLevel="H"</p>
+        <hr>
     </section>
 </main>

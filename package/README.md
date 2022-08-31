@@ -22,32 +22,39 @@ Under the `<script>` tag:
 ```ts
 import { QRCodeImage } from "svelte-qrcode-image";
 ```
+for real example you can reference the [source code](https://github.com/1toldyou/svelte-qrcode-image/blob/main/src/routes/%2Bpage.svelte) of the [demo page](https://svelte-qrcode-image.itoldyou.dev/).
 
 ## Parameters
 These parameters can be pass in to the `<QRCodeImage />`
 Although none of them are required, but please fill in the `text`
 
-| prop          | type   | description                                                                                                                                                       | default value                                                |
-|---------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| text          | string | what you want the QR Code to show; the QR Code will changed automatically if any changes in the variable binding to it                                            | "Hello World"                                                |
-| displayWidth  | number | pass to the `width` property of `<img>` tag                                                                                                                       | null - the final `<img>` element will not have this property |
-| displayHeight | number | pass to the `height` property of `<img>` tag                                                                                                                      | null - the final `<img>` element will not have this property |
-| displayStyle  | string | pass to the `style` property of `<img>` tag                                                                                                                       | "" - the final `<img>` element will not have this property   |
-| displayStyle  | string | pass to the `style` property of `<img>` tag                                                                                                                       | "" - the final `<img>` element will not have this property   |
-| altText       | string | pass to the `alt` property of `<img>` tag                                                                                                                         | "QR Code"                                                    |
-| margin        | number | pass to `margin` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Define how much wide the quiet zone should be                                  | 4                                                            |
-| scale         | number | pass to `scale` to the options of [qrcode](https://www.npmjs.com/package/qrcode): A value of `1` means 1px per modules (black dots)                               | 4                                                            |
-| width         | number | pass to `width` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Forces a specific width for the output image and takes precedence over `scale`. | undefined                                                    |
+| prop                 | type               | description                                                                                                                                                       | default value                                                |
+|----------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| text                 | string             | what you want the QR Code to show; the QR Code will changed automatically if any changes in the variable binding to it                                            | "Hello World"                                                |
+| displayWidth         | number             | pass to the `width` property of `<img>` tag                                                                                                                       | null - the final `<img>` element will not have this property |
+| displayHeight        | number             | pass to the `height` property of `<img>` tag                                                                                                                      | null - the final `<img>` element will not have this property |
+| displayStyle         | string             | pass to the `style` property of `<img>` tag                                                                                                                       | "" - the final `<img>` element will not have this property   |
+| displayStyle         | string             | pass to the `style` property of `<img>` tag                                                                                                                       | "" - the final `<img>` element will not have this property   |
+| altText              | string             | pass to the `alt` property of `<img>` tag                                                                                                                         | "QR Code"                                                    |
+| margin               | number             | pass to `margin` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Define how much wide the quiet zone should be                                  | 4                                                            |
+| scale                | number             | pass to `scale` to the options of [qrcode](https://www.npmjs.com/package/qrcode): A value of `1` means 1px per modules (black dots)                               | 4                                                            |
+| width                | number             | pass to `width` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Forces a specific width for the output image and takes precedence over `scale`. | undefined - will be calculated                               |
+| errorCorrectionLevel | "L", "M", "Q", "H" | pass to `errorCorrectionLevel` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Error correction level.                                          | "M"                                                          |
+| version              | number             | pass to `version` to the options of [qrcode](https://www.npmjs.com/package/qrcode): QR Code version.                                                              | undefined - will be calculated                               |
 
 
-
-## TODO
+## Plans
+### TODO
 - [x] Documentation
-- [ ] Expose more options
 - [x] Expose options to control the `<img>` tag
 - [x] Reactivity on text change
-- [ ] Display the QR-Code as background image or canvas
 - [x] Website for demo
+- [ ] Display the QR-Code as background image or canvas
+- [ ] Option to use different "backend" to generate the image
+
+
+### Not Planned
+- Complex/Fancy QR-Code styling to the image: I created this package for simplicity; in that case it will need different "backend" to generate the image and the size will be larger
 
 
 ## Developing
@@ -93,3 +100,7 @@ Since it's calling in the background
 svelte-kit sync && svelte-package
 ```
 Which will npt create the `public` directory, which is needed for the website to work.
+
+
+## Change Log
+I decided not to write the change log until 1.0.0, but the commit history should be enough to track the changes.

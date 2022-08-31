@@ -1,6 +1,6 @@
 {
   "name": "svelte-qrcode-image",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
@@ -36,7 +36,8 @@
   "exports": {
     "./package.json": "./package.json",
     ".": "./index.js",
-    "./QRCodeImage.svelte": "./QRCodeImage.svelte"
+    "./QRCodeImage.svelte": "./QRCodeImage.svelte",
+    "./util": "./util.js"
   },
   "svelte": "./index.js"
 }

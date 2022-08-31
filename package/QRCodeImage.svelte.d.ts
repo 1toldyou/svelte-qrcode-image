@@ -1,14 +1,18 @@
 import { SvelteComponentTyped } from "svelte";
+import QRCodeGenerator from 'qrcode';
 declare const __propDef: {
     props: {
         text?: string | undefined;
+        generator?: "node-qrcode" | undefined;
         displayWidth?: number | undefined;
         displayHeight?: number | undefined;
         displayStyle?: string | undefined;
         altText?: string | undefined;
         margin?: number | undefined;
         scale?: number | undefined;
-        width: number | undefined;
+        width?: number | undefined;
+        errorCorrectionLevel?: QRCodeGenerator.QRCodeErrorCorrectionLevel | undefined;
+        version?: number | undefined;
         getImageURL?: (() => string) | undefined;
     };
     events: {
