@@ -1,3 +1,7 @@
+<svelte:head>
+    <title>Svelte-QRCode-Image</title>
+</svelte:head>
+
 <script lang="ts">
     import QRCodeImage from "$lib/QRCodeImage.svelte";
 
@@ -8,13 +12,15 @@
 
 <main>
     <section>
-        <h1><s>Welcome to your library project</s></h1>
-        <p><s>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</s></p>
-        <p><s>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</s></p>
+        <h1>Svelte-QRCode-Image</h1>
+        <p>As a Svelte component, takes string as input and render QR Code image and display it</p>
+        <p>Written in TypeScript and works with SvelteKit</p>
         <p>
+            visit our
             <a href="https://www.npmjs.com/package/svelte-qrcode-image">npm</a>
-            &nbsp;
+            page or
             <a href="https://github.com/1toldyou/svelte-qrcode-image">GitHub</a>
+            for latest README file
         </p>
     </section>
 
@@ -51,8 +57,8 @@
         <p>displayStyle="border-style: dotted;"</p>
         <hr>
 
-        <QRCodeImage imgAlt="I'm a QR Code" />
-        <p>imgAlt="I'm a QR Code"</p>
+        <QRCodeImage altText="I'm a QR Code" />
+        <p>altText="I'm a QR Code"</p>
         <hr>
     </section>
 </main>

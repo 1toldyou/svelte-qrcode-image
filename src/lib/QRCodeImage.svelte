@@ -8,11 +8,11 @@
     export let displayWidth:number = null;  // override the default width in pixels
     export let displayHeight:number = null; // override the default height in pixels
     export let displayStyle:string = "";  // override the default style, default is none
-    export let imgAlt:string = "QR Code";
+    export let altText:string = "QR Code";
 
     // parameters that will pass to the qrcode url generator
-    export let margin: number | undefined;
-    export let scale: number | undefined;
+    export let margin: number = 4;
+    export let scale: number = 4;
     export let width: number | undefined;
 
     let _generatedImgURL:string = "";
@@ -37,7 +37,7 @@
 <div>
     <img
             src={_generatedImgURL}
-            alt={imgAlt}
+            alt={altText}
             width={displayWidth}
             height={displayHeight}
             style={displayStyle}

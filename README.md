@@ -3,6 +3,8 @@
 
 QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qrcode](https://github.com/soldair/node-qrcode)) 
 and display via `<img>` element, with TypeScript support, works on SvelteKit.
+<br>
+Visit [this page](https://svelte-qrcode-image.itoldyou.dev/) for live demo.
 
 
 ## Installation
@@ -25,15 +27,22 @@ import { QRCodeImage } from "svelte-qrcode-image";
 These parameters can be pass in to the `<QRCodeImage />`
 Although none of them are required, but please fill in the `text`
 
-| prop         | type   | description                                                                                                            | default                                                 |
-|--------------|--------|------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| text         | string | what you want the QR Code to show; the QR Code will changed automatically if any changes in the variable binding to it | "Hello World"                                           |
-| displayWidth | number | pass to the `width` property of `<img>` tag                                                                            | null - the `<img>` element will not have this property  |
+| prop          | type   | description                                                                                                                                                       | default value                                                |
+|---------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| text          | string | what you want the QR Code to show; the QR Code will changed automatically if any changes in the variable binding to it                                            | "Hello World"                                                |
+| displayWidth  | number | pass to the `width` property of `<img>` tag                                                                                                                       | null - the final `<img>` element will not have this property |
+| displayHeight | number | pass to the `height` property of `<img>` tag                                                                                                                      | null - the final `<img>` element will not have this property |
+| displayStyle  | string | pass to the `style` property of `<img>` tag                                                                                                                       | "" - the final `<img>` element will not have this property   |
+| displayStyle  | string | pass to the `style` property of `<img>` tag                                                                                                                       | "" - the final `<img>` element will not have this property   |
+| altText       | string | pass to the `alt` property of `<img>` tag                                                                                                                         | "QR Code"                                                    |
+| margin        | number | pass to `margin` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Define how much wide the quiet zone should be                                  | 4                                                            |
+| scale         | number | pass to `scale` to the options of [qrcode](https://www.npmjs.com/package/qrcode): A value of `1` means 1px per modules (black dots)                               | 4                                                            |
+| width         | number | pass to `width` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Forces a specific width for the output image and takes precedence over `scale`. | undefined                                                    |
 
 
 
 ## TODO
-- [ ] Documentation
+- [x] Documentation
 - [ ] Expose more options
 - [x] Expose options to control the `<img>` tag
 - [x] Reactivity on text change

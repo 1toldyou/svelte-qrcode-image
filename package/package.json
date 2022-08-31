@@ -1,6 +1,6 @@
 {
   "name": "svelte-qrcode-image",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
@@ -17,7 +17,7 @@
   "dependencies": {
     "qrcode": "^1.5.1"
   },
-  "homepage": "https://svelte-qrcode-image.vercel.app/",
+  "homepage": "https://svelte-qrcode-image.itoldyou.dev/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/1toldyou/svelte-qrcode-image.git"

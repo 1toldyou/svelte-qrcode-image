@@ -5,9 +5,9 @@ declare const __propDef: {
         displayWidth?: number | undefined;
         displayHeight?: number | undefined;
         displayStyle?: string | undefined;
-        imgAlt?: string | undefined;
-        margin: number | undefined;
-        scale: number | undefined;
+        altText?: string | undefined;
+        margin?: number | undefined;
+        scale?: number | undefined;
         width: number | undefined;
         getImageURL?: (() => string) | undefined;
     };
