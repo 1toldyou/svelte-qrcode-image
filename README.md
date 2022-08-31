@@ -21,6 +21,16 @@ Under the `<script>` tag:
 import { QRCodeImage } from "svelte-qrcode-image";
 ```
 
+## Parameters
+These parameters can be pass in to the `<QRCodeImage />`
+Although none of them are required, but please fill in the `text`
+
+| prop         | type   | description                                                                                                            | default                                                 |
+|--------------|--------|------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| text         | string | what you want the QR Code to show; the QR Code will changed automatically if any changes in the variable binding to it | "Hello World"                                           |
+| displayWidth | number | pass to the `width` property of `<img>` tag                                                                            | null - the `<img>` element will not have this property  |
+
+
 
 ## TODO
 - [ ] Documentation
