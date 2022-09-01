@@ -3,7 +3,7 @@
 
     import QRCodeGenerator, {QRCodeErrorCorrectionLevel} from 'qrcode';
 
-    import type {QRCodeImageGeneratorSelection, DisplayTag} from "./util";
+    import type {DisplayTag, QRCodeImageGeneratorSelection} from "./util";
 
     // required parameters
     export let text:string = "Hello World";
@@ -35,10 +35,10 @@
     onMount(async () => {
         switch (tagType){
             case "img":
-                _drawToImg();
+                await _drawToImg();
                 break;
             case "canvas":
-                _drawToCanvas();
+                await _drawToCanvas();
                 break;
             default:
                 break;
@@ -46,45 +46,41 @@
         _initialized = true;
     });
 
-    $: {
+    $: if (_initialized) {
         text = text;
         _drawToImg();
         if (tagType === "canvas"){
-            if (_initialized) {
-                _drawToCanvas();
-            }
+            _drawToCanvas();
         }
         // console.log("text changed");
     }
 
-    function _drawToImg() {
+    async function _drawToImg() {
         switch (generator) {
             case "node-qrcode":
-                _generateQRCodeWithNodeQRCode();
+                await _generateQRCodeWithNodeQRCode();
                 break;
             default:
-                _generateQRCodeWithNodeQRCode();
+                await _generateQRCodeWithNodeQRCode();
                 break;
         }
     }
 
-    function _generateQRCodeWithNodeQRCode() {
-        QRCodeGenerator
-            .toDataURL(
-                text,
-                {
-                    margin: margin,
-                    scale: scale,
-                    width: width,
-                    errorCorrectionLevel: errorCorrectionLevel,
-                    version: version
-                },
-            )
-            .then(url => { _generatedImgURL = url;});
+    async function _generateQRCodeWithNodeQRCode() {
+        _generatedImgURL = await QRCodeGenerator.toDataURL(
+            text,
+            {
+                margin: margin,
+                scale: scale,
+                width: width,
+                errorCorrectionLevel: errorCorrectionLevel,
+                version: version
+            },
+        )
     }
 
-    function _drawToCanvas() {
-        QRCodeGenerator.toCanvas(
+    async function _drawToCanvas() {
+        await QRCodeGenerator.toCanvas(
             _canvasElement,
             text,
             {
