@@ -68,5 +68,25 @@
         <QRCodeImage errorCorrectionLevel="H" />
         <p>errorCorrectionLevel="H"</p>
         <hr>
+
+        <QRCodeImage tagType="canvas" />
+        <p>tagType="canvas"</p>
+        <hr>
+
+        <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" />
+        <p>tagType="canvas" displayStyle="border-style: dotted;"</p>
+        <hr>
+
+        <QRCodeImage tagType="canvas" text={currentTimestamp} />
+        <p>tagType="canvas" dynamic: {currentTimestamp}</p>
+        <hr>
+
+        <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" displayWidth=400 />
+        <p>tagType="canvas" displayStyle="border-style: dotted;" displayWidth=400</p>
+        <hr>
+
+        <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400 />
+        <p>tagType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400</p>
+        <hr>
     </section>
 </main>

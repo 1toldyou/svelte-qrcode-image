@@ -3,13 +3,14 @@
 
     import QRCodeGenerator, {QRCodeErrorCorrectionLevel} from 'qrcode';
 
-    import type {QRCodeImageGeneratorSelection} from "./util";
+    import type {QRCodeImageGeneratorSelection, DisplayTag} from "./util";
 
     // required parameters
     export let text:string = "Hello World";
     export let generator:QRCodeImageGeneratorSelection = "node-qrcode";
+    export let tagType:DisplayTag = "img";
 
-    // parameters for the <img> tag
+    // parameters for the <img> and <canvas> tag
     export let displayWidth:number = null;  // override the default width in pixels
     export let displayHeight:number = null; // override the default height in pixels
     export let displayStyle:string = "";  // override the default style, default is none
@@ -24,22 +25,39 @@
 
     // internal variables
     let _generatedImgURL:string = "";
+    let _canvasElement: HTMLCanvasElement;
+    let _initialized:boolean = false;
 
     export function getImageURL():string {
         return _generatedImgURL;
     }
 
-    onMount(() => {
-        _generateQRCode();
+    onMount(async () => {
+        switch (tagType){
+            case "img":
+                _drawToImg();
+                break;
+            case "canvas":
+                _drawToCanvas();
+                break;
+            default:
+                break;
+        }
+        _initialized = true;
     });
 
     $: {
         text = text;
-        _generateQRCode();
+        _drawToImg();
+        if (tagType === "canvas"){
+            if (_initialized) {
+                _drawToCanvas();
+            }
+        }
         // console.log("text changed");
     }
 
-    function _generateQRCode() {
+    function _drawToImg() {
         switch (generator) {
             case "node-qrcode":
                 _generateQRCodeWithNodeQRCode();
@@ -60,18 +78,38 @@
                     width: width,
                     errorCorrectionLevel: errorCorrectionLevel,
                     version: version
-                }
+                },
             )
             .then(url => { _generatedImgURL = url;});
+    }
+
+    function _drawToCanvas() {
+        QRCodeGenerator.toCanvas(
+            _canvasElement,
+            text,
+            {
+                margin: margin,
+                scale: scale,
+                width: width,
+                errorCorrectionLevel: errorCorrectionLevel,
+                version: version
+            },
+        );
     }
 </script>
 
 <div>
-    <img
-            src={_generatedImgURL}
-            alt={altText}
-            width={displayWidth}
-            height={displayHeight}
-            style={displayStyle}
-    >
+    {#if tagType === "img"}
+        <img
+                src={_generatedImgURL}
+                alt={altText}
+                width={displayWidth}
+                height={displayHeight}
+                style={displayStyle}
+        >
+    {:else if tagType === "canvas"}
+        <canvas bind:this={_canvasElement} style={displayStyle} width={displayWidth} height={displayHeight}></canvas>
+        <!-- for have some sort of alt text since <canvas> don't have the "alt" attribute -->
+        <img src="" alt={altText} style="position: absolute; top: 0; left: 0; opacity: 0;">
+    {/if}
 </div>
