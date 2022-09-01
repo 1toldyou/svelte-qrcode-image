@@ -1,5 +1,5 @@
 <script>import { onMount } from "svelte";
-import QRCodeGenerator, { QRCodeErrorCorrectionLevel } from 'qrcode';
+import QRCodeGenerator from 'qrcode';
 // required parameters
 export let text = "Hello World";
 export let generator = "node-qrcode";

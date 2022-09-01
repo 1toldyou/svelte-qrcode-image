@@ -1,6 +1,5 @@
 import { SvelteComponentTyped } from "svelte";
-import QRCodeGenerator from 'qrcode';
-import type { DisplayTag } from "./util";
+import type { DisplayTag, QRCodeErrorCorrectionLevel } from "./util";
 declare const __propDef: {
     props: {
         text?: string | undefined;
@@ -13,7 +12,7 @@ declare const __propDef: {
         margin?: number | undefined;
         scale?: number | undefined;
         width?: number | undefined;
-        errorCorrectionLevel?: QRCodeGenerator.QRCodeErrorCorrectionLevel | undefined;
+        errorCorrectionLevel?: QRCodeErrorCorrectionLevel | undefined;
         version?: number | undefined;
         getImageURL?: (() => string) | undefined;
     };

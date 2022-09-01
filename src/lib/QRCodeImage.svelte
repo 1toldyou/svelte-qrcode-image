@@ -1,9 +1,9 @@
 <script lang="ts">
     import {onMount} from "svelte";
 
-    import QRCodeGenerator, {QRCodeErrorCorrectionLevel} from 'qrcode';
+    import QRCodeGenerator from 'qrcode';
 
-    import type {DisplayTag, QRCodeImageGeneratorSelection} from "./util";
+    import type {DisplayTag, QRCodeImageGeneratorSelection, QRCodeErrorCorrectionLevel} from "./util";
 
     // required parameters
     export let text:string = "Hello World";
