@@ -1,9 +1,11 @@
 import { SvelteComponentTyped } from "svelte";
 import QRCodeGenerator from 'qrcode';
+import type { DisplayTag } from "./util";
 declare const __propDef: {
     props: {
         text?: string | undefined;
         generator?: "node-qrcode" | undefined;
+        tagType?: DisplayTag | undefined;
         displayWidth?: number | undefined;
         displayHeight?: number | undefined;
         displayStyle?: string | undefined;

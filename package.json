@@ -1,6 +1,6 @@
 {
 	"name": "svelte-qrcode-image",
-	"version": "0.3.5",
+	"version": "0.4.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
