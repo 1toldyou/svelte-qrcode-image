@@ -1,6 +1,6 @@
 {
   "name": "svelte-qrcode-image",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",

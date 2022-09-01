@@ -1,5 +1,6 @@
 <script>import { onMount } from "svelte";
-import QRCodeGenerator from 'qrcode';
+// import QRCode from 'qrcode';
+import { QRCode } from "./util";
 // required parameters
 export let text = "Hello World";
 export let generator = "node-qrcode";
@@ -54,7 +55,7 @@ async function _drawToImg() {
     }
 }
 async function _generateQRCodeWithNodeQRCode() {
-    _generatedImgURL = await QRCodeGenerator.toDataURL(text, {
+    _generatedImgURL = await QRCode.toDataURL(text, {
         margin: margin,
         scale: scale,
         width: width,
@@ -63,7 +64,7 @@ async function _generateQRCodeWithNodeQRCode() {
     });
 }
 async function _drawToCanvas() {
-    await QRCodeGenerator.toCanvas(_canvasElement, text, {
+    await QRCode.toCanvas(_canvasElement, text, {
         margin: margin,
         scale: scale,
         width: width,
