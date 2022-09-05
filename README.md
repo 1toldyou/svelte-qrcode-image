@@ -1,11 +1,10 @@
 # Svelte-QRCode-Image
-**Under development, breaking change could occur before 1.0.0**
 
 QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qrcode](https://github.com/soldair/node-qrcode)) 
 and display via `<img>` element, with TypeScript support, works on SvelteKit.
 <br>
 Visit [this page](https://svelte-qrcode-image.itoldyou.dev/) for live demo.
-
+**Under development, breaking change could occur before 1.0.0**
 
 ## Installation
 Directly from npm:
@@ -41,6 +40,14 @@ Although none of them are required, but please fill in the `text`
 | width                | number             | pass to `width` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Forces a specific width for the output image and takes precedence over `scale`. | undefined - will be calculated                               |
 | errorCorrectionLevel | "L", "M", "Q", "H" | pass to `errorCorrectionLevel` to the options of [qrcode](https://www.npmjs.com/package/qrcode): Error correction level.                                          | "M"                                                          |
 | version              | number             | pass to `version` to the options of [qrcode](https://www.npmjs.com/package/qrcode): QR Code version.                                                              | undefined - will be calculated                               |
+
+
+## Troubleshooting
+If you encounter any problem, please open an issue on our [GitHub Issue](https://github.com/1toldyou/svelte-qrcode-image/issues)
+
+Nevertheless, we recommend you to this with the latest version of Svelte or SvelteKit and unable to guarantee that it will work with older versions.
+The minimum version required of SvelteKit is `1.0.0-next.373` which use Vite 3. 
+And only works with [modern browsers](https://vitejs.dev/guide/migration.html#modern-browser-baseline-change) by default.
 
 
 ## Plans
