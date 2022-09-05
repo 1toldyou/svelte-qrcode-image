@@ -9,7 +9,9 @@
     // required parameters
     export let text:string = "Hello World";
     export let generator:QRCodeImageGeneratorSelection = "node-qrcode";
+    /** @deprecated use displayType instead */
     export let tagType:DisplayTag = "img";
+    export let displayType:DisplayTag = "img";
 
     // attributes for the <img> and <canvas> tag
     // if it's not set, the default values should be null instead of ""
@@ -39,7 +41,12 @@
     }
 
     onMount(async () => {
-        switch (tagType){
+        // downward compatibility
+        if (tagType != "img") {
+            displayType = "canvas";
+            console.warn("please use the `displayType` instead of `tagType` for `<QRCodeImage>`");
+        }
+        switch (displayType){
             case "img":
                 await _drawToImg();
                 break;
@@ -55,7 +62,7 @@
     $: if (_initialized) {
         text = text;
         _drawToImg();
-        if (tagType === "canvas"){
+        if (displayType === "canvas"){
             _drawToCanvas();
         }
         // console.log("text changed");
@@ -101,7 +108,7 @@
 </script>
 
 <div>
-    {#if tagType === "img"}
+    {#if displayType === "img"}
         <img
                 src={_generatedImgURL}
                 alt={altText}
@@ -111,7 +118,7 @@
                 id={_imgTagID}
                 class={displayClass}
         >
-    {:else if tagType === "canvas"}
+    {:else if displayType === "canvas"}
         <canvas
                 bind:this={_canvasElement}
                 style={displayStyle}

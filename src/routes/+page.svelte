@@ -73,32 +73,28 @@
         <p>errorCorrectionLevel="H"</p>
         <hr>
 
-        <QRCodeImage tagType="img" displayLoading="lazy" />
-        <p>tagType="img" displayLoading="lazy"</p>
+        <QRCodeImage displayType="canvas" />
+        <p>displayType="canvas"</p>
         <hr>
 
-        <QRCodeImage tagType="canvas" />
-        <p>tagType="canvas"</p>
+        <QRCodeImage displayType="canvas" displayID="i-have-id-too" displayClass="i-have-class-too" />
+        <p>displayType="canvas" displayID="i-have-id-too" displayClass="i-have-class-too"</p>
         <hr>
 
-        <QRCodeImage tagType="canvas" displayID="i-have-id-too" displayClass="i-have-class-too" />
-        <p>tagType="canvas" displayID="i-have-id-too" displayClass="i-have-class-too"</p>
+        <QRCodeImage displayType="canvas" displayStyle="border-style: dotted;" />
+        <p>displayType="canvas" displayStyle="border-style: dotted;"</p>
         <hr>
 
-        <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" />
-        <p>tagType="canvas" displayStyle="border-style: dotted;"</p>
+        <QRCodeImage displayTag="canvas" text={currentTimestamp} />
+        <p>displayTag="canvas" dynamic: {currentTimestamp}</p>
         <hr>
 
-        <QRCodeImage tagType="canvas" text={currentTimestamp} />
-        <p>tagType="canvas" dynamic: {currentTimestamp}</p>
+        <QRCodeImage displayType="canvas" displayStyle="border-style: dotted;" displayWidth=400 />
+        <p>displayType="canvas" displayStyle="border-style: dotted;" displayWidth=400</p>
         <hr>
 
-        <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" displayWidth=400 />
-        <p>tagType="canvas" displayStyle="border-style: dotted;" displayWidth=400</p>
-        <hr>
-
-        <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400 />
-        <p>tagType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400</p>
+        <QRCodeImage displayType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400 />
+        <p>displayType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400</p>
         <hr>
     </section>
 </main>
