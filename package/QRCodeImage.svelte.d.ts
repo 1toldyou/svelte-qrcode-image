@@ -9,6 +9,8 @@ declare const __propDef: {
         displayHeight?: number | undefined;
         displayStyle?: string | undefined;
         altText?: string | undefined;
+        displayID?: string | undefined;
+        displayClass?: string | undefined;
         margin?: number | undefined;
         scale?: number | undefined;
         width?: number | undefined;
