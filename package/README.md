@@ -7,11 +7,11 @@ Visit [this page](https://svelte-qrcode-image.itoldyou.dev/) for live demo.
 **Under development, breaking change could occur before 1.0.0**
 
 ## Installation
-Directly from npm:
+Directly from [npm](https://www.npmjs.com/package/svelte-qrcode-image):
 ```bash
 npm install svelte-qrcode-image
 ```
-From GitHub:
+From [GitHub](https://github.com/1toldyou/svelte-qrcode-image):
 ```bash
 npm install git+https://github.com/1toldyou/svelte-qrcode-image.git
 ```
