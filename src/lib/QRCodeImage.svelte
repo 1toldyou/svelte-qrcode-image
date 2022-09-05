@@ -11,11 +11,14 @@
     export let generator:QRCodeImageGeneratorSelection = "node-qrcode";
     export let tagType:DisplayTag = "img";
 
-    // parameters for the <img> and <canvas> tag
+    // attributes for the <img> and <canvas> tag
+    // if it's not set, the default values should be null instead of ""
     export let displayWidth:number = null;  // override the default width in pixels
     export let displayHeight:number = null; // override the default height in pixels
-    export let displayStyle:string = "";  // override the default style, default is none
+    export let displayStyle:string = null;  // override the default style, default is null
     export let altText:string = "QR Code";
+    export let displayID:string = null;  // if its null, then the rendered element will not have an id with no value
+    export let displayClass:string = null;  // if its null, then the rendered element will not have a class with no value
 
     // parameters that will pass to the qrcode url generator
     export let margin: number = 4;
@@ -28,6 +31,8 @@
     let _generatedImgURL:string = "";
     let _canvasElement: HTMLCanvasElement;
     let _initialized:boolean = false;
+    let _imgTagID:string = displayID;  // for suppress the `duplicate id reference` warning
+    let _canvasTagID:string = displayID;  // for suppress the `duplicate id reference` warning
 
     export function getImageURL():string {
         return _generatedImgURL;
@@ -103,9 +108,18 @@
                 width={displayWidth}
                 height={displayHeight}
                 style={displayStyle}
+                id={_imgTagID}
+                class={displayClass}
         >
     {:else if tagType === "canvas"}
-        <canvas bind:this={_canvasElement} style={displayStyle} width={displayWidth} height={displayHeight}></canvas>
+        <canvas
+                bind:this={_canvasElement}
+                style={displayStyle}
+                width={displayWidth}
+                height={displayHeight}
+                id={_canvasTagID}
+                class={displayClass}
+        ></canvas>
         <!-- for have some sort of alt text since <canvas> don't have the "alt" attribute -->
         <img src="" alt={altText} style="position: absolute; top: 0; left: 0; opacity: 0;">
     {/if}

@@ -29,6 +29,10 @@
         <p>Hello World</p>
         <hr>
 
+        <QRCodeImage displayID="your-element" displayClass="your-class" />
+        <p>displayID="your-element" displayClass="your-class"</p>
+        <hr>
+
         <QRCodeImage text="eee" />
         <p>eee</p>
         <hr>
@@ -69,8 +73,16 @@
         <p>errorCorrectionLevel="H"</p>
         <hr>
 
+        <QRCodeImage tagType="img" displayLoading="lazy" />
+        <p>tagType="img" displayLoading="lazy"</p>
+        <hr>
+
         <QRCodeImage tagType="canvas" />
         <p>tagType="canvas"</p>
+        <hr>
+
+        <QRCodeImage tagType="canvas" displayID="i-have-id-too" displayClass="i-have-class-too" />
+        <p>tagType="canvas" displayID="i-have-id-too" displayClass="i-have-class-too"</p>
         <hr>
 
         <QRCodeImage tagType="canvas" displayStyle="border-style: dotted;" />
