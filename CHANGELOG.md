@@ -1,5 +1,8 @@
 # Svelte-QRCode-Image changelog
 
+## 1.0.0-beta
+Update README.md
+
 ## 1.0.0-alpha
 Bumping version.
 <br>

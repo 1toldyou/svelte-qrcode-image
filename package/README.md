@@ -1,10 +1,16 @@
 # Svelte-QRCode-Image
 
-QR-Code generated using [qrcode](https://www.npmjs.com/package/qrcode) ([node-qrcode](https://github.com/soldair/node-qrcode)) 
-and display via `<img>` element, with TypeScript support, works on SvelteKit.
+QR-Code generated using [node-qrcode](https://github.com/soldair/node-qrcode)
+and display via `<img>` or `<canvas>` element, with TypeScript support, works on SvelteKit.
 <br>
 Visit [this page](https://svelte-qrcode-image.itoldyou.dev/) for live demo.
+<br>
 **Under development, breaking change could occur before 1.0.0**
+<br>
+[![Version](https://img.shields.io/npm/v/svelte-qrcode-image)](https://www.npmjs.com/package/svelte-qrcode-image)
+[![License](https://img.shields.io/github/license/1toldyou/svelte-qrcode-image)](https://github.com/1toldyou/svelte-qrcode-image/blob/main/LICENSE)
+[![Downloads](https://img.shields.io/npm/dw/svelte-qrcode-image)](https://www.npmjs.com/package/svelte-qrcode-image)
+[![Last Commit](https://img.shields.io/github/last-commit/1toldyou/svelte-qrcode-image)](https://github.com/1toldyou/svelte-qrcode-image)
 
 ## Installation
 Directly from [npm](https://www.npmjs.com/package/svelte-qrcode-image):
@@ -26,6 +32,7 @@ import { QRCodeImage } from "svelte-qrcode-image";
 <QRCodeImage text="hi" width=233 />
 <QRCodeImage text="hi" width=233 height=233 />
 <QRCodeImage text="hi" scale=10 displayType="canvas" />
+<QRCodeImage displayType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400 />
 ```
 for real example you can reference the [source code](https://github.com/1toldyou/svelte-qrcode-image/blob/main/src/routes/%2Bpage.svelte) of the [demo page](https://svelte-qrcode-image.itoldyou.dev/).
 
@@ -76,6 +83,10 @@ as the actual work is done in [onMount](https://svelte.dev/docs#run-time-svelte-
 
 ### Not Planned
 - Complex/Fancy QR-Code styling to the image: I created this package for simplicity; in that case it will need different "backend" to generate the image and the size will be larger
+
+
+## Dependencies
+- [qrcode](https://www.npmjs.com/package/qrcode)
 
 
 ## Developing
