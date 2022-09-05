@@ -21,6 +21,12 @@ Under the `<script>` tag:
 ```ts
 import { QRCodeImage } from "svelte-qrcode-image";
 ```
+```html
+<QRCodeImage text="hi" />
+<QRCodeImage text="hi" width=233 />
+<QRCodeImage text="hi" width=233 height=233 />
+<QRCodeImage text="hi" scale=10 displayType="canvas" />
+```
 for real example you can reference the [source code](https://github.com/1toldyou/svelte-qrcode-image/blob/main/src/routes/%2Bpage.svelte) of the [demo page](https://svelte-qrcode-image.itoldyou.dev/).
 
 ## Parameters
@@ -30,6 +36,7 @@ Although none of them are required, but please fill in the `text`
 | prop                 | type               | description                                                                                                                                                       | default value                                                |
 |----------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | text                 | string             | what you want the QR Code to show; the QR Code will changed automatically if any changes in the variable binding to it                                            | "Hello World"                                                |
+| displayType          | "img", "canvas"    | display the image in `<canvas>` or `<img>`                                                                                                                        | "img"                                                        |
 | displayWidth         | number             | pass to the `width` attribute of `<img>` or `<canvas> tag                                                                                                         | null - the final `<img>` element will not have this property |
 | displayHeight        | number             | pass to the `height` attribute of `<img>` or `<canvas> tag                                                                                                        | null - the final `<img>` element will not have this property |
 | displayStyle         | string             | pass to the `style` attribute of `<img>` or `<canvas>` tag                                                                                                        | null - the final `<img>` element will not have this property |

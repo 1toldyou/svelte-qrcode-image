@@ -4,7 +4,8 @@ declare const __propDef: {
     props: {
         text?: string | undefined;
         generator?: "node-qrcode" | undefined;
-        tagType?: DisplayTag | undefined;
+        /** @deprecated use displayType instead */ tagType?: DisplayTag | undefined;
+        displayType?: DisplayTag | undefined;
         displayWidth?: number | undefined;
         displayHeight?: number | undefined;
         displayStyle?: string | undefined;

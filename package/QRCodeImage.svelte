@@ -4,7 +4,9 @@ import { QRCode } from "./util";
 // required parameters
 export let text = "Hello World";
 export let generator = "node-qrcode";
+/** @deprecated use displayType instead */
 export let tagType = "img";
+export let displayType = "img";
 // attributes for the <img> and <canvas> tag
 // if it's not set, the default values should be null instead of ""
 export let displayWidth = null; // override the default width in pixels
@@ -29,7 +31,12 @@ export function getImageURL() {
     return _generatedImgURL;
 }
 onMount(async () => {
-    switch (tagType) {
+    // downward compatibility
+    if (tagType != "img") {
+        displayType = "canvas";
+        console.warn("please use the `displayType` instead of `tagType` for `<QRCodeImage>`");
+    }
+    switch (displayType) {
         case "img":
             await _drawToImg();
             break;
@@ -44,7 +51,7 @@ onMount(async () => {
 $: if (_initialized) {
     text = text;
     _drawToImg();
-    if (tagType === "canvas") {
+    if (displayType === "canvas") {
         _drawToCanvas();
     }
     // console.log("text changed");
@@ -80,7 +87,7 @@ async function _drawToCanvas() {
 </script>
 
 <div>
-    {#if tagType === "img"}
+    {#if displayType === "img"}
         <img
                 src={_generatedImgURL}
                 alt={altText}
@@ -90,7 +97,7 @@ async function _drawToCanvas() {
                 id={_imgTagID}
                 class={displayClass}
         >
-    {:else if tagType === "canvas"}
+    {:else if displayType === "canvas"}
         <canvas
                 bind:this={_canvasElement}
                 style={displayStyle}
