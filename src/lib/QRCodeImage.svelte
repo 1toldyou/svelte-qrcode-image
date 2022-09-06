@@ -107,18 +107,18 @@
     }
 </script>
 
-<div>
-    {#if displayType === "img"}
-        <img
-                src={_generatedImgURL}
-                alt={altText}
-                width={displayWidth}
-                height={displayHeight}
-                style={displayStyle}
-                id={_imgTagID}
-                class={displayClass}
-        >
-    {:else if displayType === "canvas"}
+{#if displayType === "img"}
+    <img
+            src={_generatedImgURL}
+            alt={altText}
+            width={displayWidth}
+            height={displayHeight}
+            style={displayStyle}
+            id={_imgTagID}
+            class={displayClass}
+    >
+{:else if displayType === "canvas"}
+    <div>
         <canvas
                 bind:this={_canvasElement}
                 style={displayStyle}
@@ -129,5 +129,5 @@
         ></canvas>
         <!-- for have some sort of alt text since <canvas> don't have the "alt" attribute -->
         <img src="" alt={altText} style="position: absolute; top: 0; left: 0; opacity: 0;">
-    {/if}
-</div>
+    </div>
+{/if}
