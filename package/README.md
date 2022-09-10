@@ -1,11 +1,11 @@
 # Svelte-QRCode-Image
 
 QR-Code generated using [node-qrcode](https://github.com/soldair/node-qrcode)
-and display via `<img>` or `<canvas>` element, with TypeScript support, works on SvelteKit.
+and display via `<img>` or `<canvas>` element, with TypeScript support and exported as ESM, works on SvelteKit.
 <br>
 Visit [this page](https://svelte-qrcode-image.itoldyou.dev/) for live demo.
 <br>
-**Under development, breaking change could occur before 1.0.0**
+**1.0.0 coming very soon**
 <br>
 [![Version](https://img.shields.io/npm/v/svelte-qrcode-image)](https://www.npmjs.com/package/svelte-qrcode-image)
 [![License](https://img.shields.io/github/license/1toldyou/svelte-qrcode-image)](https://github.com/1toldyou/svelte-qrcode-image/blob/main/LICENSE)
@@ -35,7 +35,11 @@ And that's all you need to put inside the `<script>` tag.
 <QRCodeImage text="hi" scale=10 displayType="canvas" />
 <QRCodeImage displayType="canvas" displayStyle="border-style: dotted;" width=500 displayWidth=400 />
 ```
-for real example you can reference the [source code](https://github.com/1toldyou/svelte-qrcode-image/blob/main/src/routes/%2Bpage.svelte) of the [demo page](https://svelte-qrcode-image.itoldyou.dev/).
+You can also bind the `text` props to a variable, and will automatically refresh when the variable changes (reactivity)
+```html
+<QRCodeImage text={eee} />
+```
+for more real example you can reference the [source code](https://github.com/1toldyou/svelte-qrcode-image/blob/main/src/routes/%2Bpage.svelte) of the [demo page](https://svelte-qrcode-image.itoldyou.dev/).
 
 ## Parameters
 These parameters can be pass in to the `<QRCodeImage />`
@@ -63,11 +67,12 @@ If you encounter any problem, please open an issue on our [GitHub Issue](https:/
 
 Nevertheless, we recommend you to this with the latest version of Svelte or SvelteKit and unable to guarantee that it will work with older versions.
 The minimum version required of SvelteKit is `1.0.0-next.373` which use Vite 3. 
-And only works with [modern browsers](https://vitejs.dev/guide/migration.html#modern-browser-baseline-change) by default.
+And not works with [ancient browsers](https://vitejs.dev/guide/migration.html#modern-browser-baseline-change) by default.
 
 ### Limitation
-The QR Code might not be generated during SSR, will only have the `<img>` or `<canvas>` tag created,
-as the actual work is done in [onMount](https://svelte.dev/docs#run-time-svelte-onmount) to prevent the undefined behavior of [bind:this](https://svelte.dev/docs#template-syntax-element-directives-bind-this)
+The QR Code is being generated (A.K.A. the actual work) when [onMount](https://svelte.dev/docs#run-time-svelte-onmount) being called
+to prevent the undefined behavior of [bind:this](https://svelte.dev/docs#template-syntax-element-directives-bind-this).
+Might only have the `<img>` or `<canvas>` tag created during SSR.
 
 
 ## Plans
@@ -80,11 +85,7 @@ as the actual work is done in [onMount](https://svelte.dev/docs#run-time-svelte-
 - [ ] Display the QR-Code as background image
 - [ ] Option to use different "backend" to generate the image
 - [ ] Automatic Testing
-- [ ] Reactivity on other options change
-
-
-### Not Planned
-- Complex/Fancy QR-Code styling to the image: I created this package for simplicity; in that case it will need different "backend" to generate the image and the size will be larger
+- [ ] Reactivity on other options change (especially the `size`)
 
 
 ## Dependencies
@@ -101,7 +102,9 @@ Once you've created a project and installed dependencies with `npm install` (or 
 ```bash
 npm run dev
 ```
-You can change the port in `vite.config.ts`.
+You can change the port in `vite.config.ts`,
+the default port is 3001
+and can be opened in `localhost:3001` or `127.0.0.1:3001`
 
 Since this being setup as SvelteKit project, so you should create your component in `src/lib` directory.
 And re-export it in `src/lib/index.js` file.
@@ -133,8 +136,12 @@ Due to recent change in SvelteKit, you need to run this command to build the web
 vite build
 ```
 Instead of 'npm run build`
-Since it's calling in the background
+Since it's being internally linked to
 ```bash
 svelte-kit sync && svelte-package
 ```
 Which will npt create the `public` directory, which is needed for the website to work.
+
+
+## Footnote
+- [node-qrcode](https://github.com/soldair/node-qrcode) and [qrcode](https://www.npmjs.com/package/qrcode) is the same thing

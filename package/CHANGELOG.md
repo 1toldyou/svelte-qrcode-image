@@ -1,5 +1,8 @@
 # Svelte-QRCode-Image changelog
 
+## 1.0.0-rc.2
+Update README.md: more examples and adjusted some wording
+
 ## 1.0.0-rc.1
 Remove the `<div>` wrapping the `<img>` tag since it shouldn't be necessary.
 
