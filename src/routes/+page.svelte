@@ -22,6 +22,7 @@
             <a href="https://github.com/1toldyou/svelte-qrcode-image">GitHub</a>
             for latest README file
         </p>
+        <a href="/generator">Online QR Code Generator</a>
     </section>
 
     <section>
