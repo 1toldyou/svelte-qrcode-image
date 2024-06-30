@@ -1,6 +1,6 @@
 {
 	"name": "svelte-qrcode-image",
-	"version": "0.0.1",
+	"version": "2.0.0-alpha.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -41,5 +41,21 @@
 	"type": "module",
 	"dependencies": {
 		"@nuintun/qrcode": "^4.1.4"
-	}
+	},
+	"homepage": "https://svelte-qrcode-image.itoldyou.dev/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/1toldyou/svelte-qrcode-image.git"
+	},
+	"bugs": {
+		"url": "https://github.com/1toldyou/svelte-qrcode-image/issues"
+	},
+	"keywords": [
+		"qrcode",
+		"qr-code",
+		"qr",
+		"svelte",
+		"sveltekit",
+		"svelte-kit"
+	]
 }
