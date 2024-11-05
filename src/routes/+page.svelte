@@ -5,7 +5,7 @@
 <script lang="ts">
     import QRCodeImage from "$lib/QRCodeImage.svelte";
 
-    let currentTimestamp:string = Math.round(Date.now() / 1000).toString();
+    let currentTimestamp:string = $state(Math.round(Date.now() / 1000).toString());
 
     setInterval(() => {currentTimestamp = Math.round(Date.now() / 1000).toString();}, 1000);
 </script>

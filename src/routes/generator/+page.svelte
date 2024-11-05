@@ -6,7 +6,7 @@
     import QRCodeImage from "$lib/QRCodeImage.svelte";
     import {onMount} from "svelte";
 
-    let inputText:string = " ";
+    let inputText:string = $state(" ");
 
     onMount(async () =>{
         inputText = "";

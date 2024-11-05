@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { run } from 'svelte/legacy';
+
     import {onMount} from "svelte";
 
     // import QRCode from 'qrcode';
@@ -7,32 +9,53 @@
     import type {DisplayTag, QRCodeImageGeneratorSelection, QRCodeErrorCorrectionLevel} from "./util";
 
     // required parameters
-    export let text:string = "Hello World";
-    export let generator:QRCodeImageGeneratorSelection = "node-qrcode";
-    /** @deprecated use displayType instead */
-    export let tagType:DisplayTag = "img";
-    export let displayType:DisplayTag = "img";
+    
 
     // attributes for the <img> and <canvas> tag
     // if it's not set, the default values should be null instead of ""
-    export let displayWidth:number = null;  // override the default width in pixels
-    export let displayHeight:number = null; // override the default height in pixels
-    export let displayStyle:string = null;  // override the default style, default is null
-    export let altText:string = "QR Code";
-    export let displayID:string = null;  // if its null, then the rendered element will not have an id with no value
-    export let displayClass:string = null;  // if its null, then the rendered element will not have a class with no value
 
     // parameters that will pass to the qrcode url generator
-    export let margin: number = 4;
-    export let scale: number = 4;
-    export let width: number | undefined = undefined;
-    export let errorCorrectionLevel: QRCodeErrorCorrectionLevel = "M";
-    export let version: number | undefined = undefined;
+    interface Props {
+        text?: string;
+        generator?: QRCodeImageGeneratorSelection;
+        /** @deprecated use displayType instead */
+        tagType?: DisplayTag;
+        displayType?: DisplayTag;
+        displayWidth?: number;
+        displayHeight?: number;
+        displayStyle?: string;
+        altText?: string;
+        displayID?: string;
+        displayClass?: string;
+        margin?: number;
+        scale?: number;
+        width?: number | undefined;
+        errorCorrectionLevel?: QRCodeErrorCorrectionLevel;
+        version?: number | undefined;
+    }
+
+    let {
+        text = $bindable("Hello World"),
+        generator = "node-qrcode",
+        tagType = "img",
+        displayType = $bindable("img"),
+        displayWidth = null,
+        displayHeight = null,
+        displayStyle = null,
+        altText = "QR Code",
+        displayID = null,
+        displayClass = null,
+        margin = 4,
+        scale = 4,
+        width = undefined,
+        errorCorrectionLevel = "M",
+        version = undefined
+    }: Props = $props();
 
     // internal variables
-    let _generatedImgURL:string = "";
-    let _canvasElement: HTMLCanvasElement;
-    let _initialized:boolean = false;
+    let _generatedImgURL:string = $state("");
+    let _canvasElement: HTMLCanvasElement = $state();
+    let _initialized:boolean = $state(false);
     let _imgTagID:string = displayID;  // for suppress the `duplicate id reference` warning
     let _canvasTagID:string = displayID;  // for suppress the `duplicate id reference` warning
 
@@ -59,14 +82,6 @@
         _initialized = true;
     });
 
-    $: if (_initialized) {
-        text = text;
-        _drawToImg();
-        if (displayType === "canvas"){
-            _drawToCanvas();
-        }
-        // console.log("text changed");
-    }
 
     async function _drawToImg() {
         switch (generator) {
@@ -105,6 +120,16 @@
             },
         );
     }
+    run(() => {
+        if (_initialized) {
+            text = text;
+            _drawToImg();
+            if (displayType === "canvas"){
+                _drawToCanvas();
+            }
+            // console.log("text changed");
+        }
+    });
 </script>
 
 {#if displayType === "img"}
